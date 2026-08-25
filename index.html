@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QuadMatch — Instant Peer Tutoring, Same Campus</title>
+<style>
+  :root {
+    --navy: #0a1930;
+    --navy-light: #132a4d;
+    --navy-mid: #1c3a63;
+    --white: #ffffff;
+    --off-white: #f4f7fb;
+    --accent: #ffb547;
+    --accent-2: #4dd0e1;
+    --text-muted: #b8c4d9;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', Helvetica, Arial, sans-serif;
+    color: var(--white);
+    background: var(--navy);
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAV */
+  nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 22px 0;
+    position: sticky;
+    top: 0;
+    background: rgba(10, 25, 48, 0.92);
+    backdrop-filter: blur(8px);
+    z-index: 100;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .nav-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  .logo {
+    font-size: 1.4rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+  }
+
+  .logo span { color: var(--accent); }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    font-size: 0.95rem;
+    color: var(--text-muted);
+  }
+
+  .nav-links a:hover { color: var(--white); }
+
+  .nav-cta {
+    background: var(--accent);
+    color: var(--navy);
+    padding: 10px 20px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 18px rgba(255,181,71,0.35); }
+
+  /* HERO */
+  header.hero {
+    padding: 100px 0 90px;
+    text-align: center;
+    background: radial-gradient(circle at 20% 20%, rgba(77,208,225,0.12), transparent 40%),
+                radial-gradient(circle at 80% 30%, rgba(255,181,71,0.10), transparent 45%),
+                var(--navy);
+  }
+
+  .badge {
+    display: inline-block;
+    background: rgba(77,208,225,0.12);
+    border: 1px solid rgba(77,208,225,0.35);
+    color: var(--accent-2);
+    padding: 6px 16px;
+    border-radius: 30px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    margin-bottom: 24px;
+  }
+
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    max-width: 800px;
+    margin: 0 auto 22px;
+    line-height: 1.2;
+  }
+
+  h1 .highlight { color: var(--accent); }
+
+  .subhead {
+    font-size: 1.15rem;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 40px;
+  }
+
+  .hero-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--navy);
+    padding: 16px 34px;
+    border-radius: 30px;
+    font-weight: 700;
+    font-size: 1rem;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 10px 24px rgba(255,181,71,0.4); }
+
+  .btn-secondary {
+    background: transparent;
+    color: var(--white);
+    padding: 16px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 1rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    cursor: pointer;
+    transition: background 0.2s ease;
+  }
+
+  .btn-secondary:hover { background: rgba(255,255,255,0.08); }
+
+  .hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-top: 60px;
+    flex-wrap: wrap;
+  }
+
+  .stat { text-align: center; }
+  .stat .num { font-size: 1.8rem; font-weight: 800; color: var(--accent-2); }
+  .stat .label { font-size: 0.85rem; color: var(--text-muted); margin-top: 4px; }
+
+  /* SECTION HEADINGS */
+  .section-heading {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 60px;
+  }
+
+  .section-heading .tag {
+    color: var(--accent-2);
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    display: block;
+  }
+
+  .section-heading h2 {
+    font-size: 2.2rem;
+    font-weight: 800;
+    margin-bottom: 14px;
+  }
+
+  .section-heading p {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+  }
+
+  /* FEATURES */
+  .features {
+    padding: 100px 0;
+    background: var(--navy-light);
+  }
+
+  .feature-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+  }
+
+  .feature-card {
+    background: var(--navy-mid);
+    border-radius: 18px;
+    padding: 36px 30px;
+    border: 1px solid rgba(255,255,255,0.06);
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 16px 40px rgba(0,0,0,0.35);
+  }
+
+  .feature-icon {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+    display: inline-block;
+  }
+
+  .feature-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  .feature-card p {
+    color: var(--text-muted);
+    font-size: 0.96rem;
+  }
+
+  .priority-tag {
+    position: absolute;
+    top: 24px;
+    right: 24px;
+    background: rgba(255,181,71,0.15);
+    color: var(--accent);
+    font-size: 0.72rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+
+  /* HOW IT WORKS */
+  .how {
+    padding: 100px 0;
+  }
+
+  .how-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+  }
+
+  .how-step {
+    text-align: center;
+    padding: 20px;
+  }
+
+  .how-step .step-num {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: var(--accent-2);
+    color: var(--navy);
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 18px;
+    font-size: 1.1rem;
+  }
+
+  .how-step h4 {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
+    font-weight: 700;
+  }
+
+  .how-step p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  /* TESTIMONIALS */
+  .testimonials {
+    padding: 100px 0;
+    background: var(--navy-light);
+  }
+
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+  }
+
+  .testimonial-card {
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 32px 26px;
+  }
+
+  .testimonial-card .quote-mark {
+    font-size: 2rem;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 10px;
+  }
+
+  .testimonial-card p.quote {
+    color: var(--text-muted);
+    font-size: 0.96rem;
+    margin-bottom: 22px;
+    min-height: 110px;
+  }
+
+  .testimonial-person {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .avatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    color: var(--navy);
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+
+  .person-name { font-weight: 700; font-size: 0.95rem; }
+  .person-role { font-size: 0.8rem; color: var(--text-muted); }
+
+  /* CTA BANNER */
+  .cta-banner {
+    padding: 90px 0;
+    text-align: center;
+    background: linear-gradient(135deg, rgba(255,181,71,0.10), rgba(77,208,225,0.08));
+  }
+
+  .cta-banner h2 {
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 16px;
+  }
+
+  .cta-banner p {
+    color: var(--text-muted);
+    max-width: 520px;
+    margin: 0 auto 34px;
+  }
+
+  /* FOOTER */
+  footer {
+    background: #071224;
+    padding: 50px 0 30px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 30px;
+    margin-bottom: 30px;
+  }
+
+  .footer-brand .logo { margin-bottom: 10px; }
+
+  .footer-brand p {
+    color: var(--text-muted);
+    font-size: 0.88rem;
+    max-width: 280px;
+  }
+
+  .footer-cols {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+
+  .footer-col h5 {
+    font-size: 0.85rem;
+    margin-bottom: 14px;
+    color: var(--white);
+    letter-spacing: 0.5px;
+  }
+
+  .footer-col a {
+    display: block;
+    color: var(--text-muted);
+    font-size: 0.85rem;
+    margin-bottom: 10px;
+  }
+
+  .footer-col a:hover { color: var(--accent-2); }
+
+  .footer-bottom {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    padding-top: 24px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .feature-grid { grid-template-columns: 1fr; }
+    .how-grid { grid-template-columns: repeat(2, 1fr); }
+    .testimonial-grid { grid-template-columns: 1fr; }
+    h1 { font-size: 2.3rem; }
+  }
+
+  @media (max-width: 700px) {
+    .nav-links { display: none; }
+    .hero-stats { gap: 30px; }
+    header.hero { padding: 70px 0 60px; }
+    .footer-top { flex-direction: column; }
+  }
+</style>
+</head>
+<body>
+
+  <nav>
+    <div class="container nav-inner">
+      <div class="logo">Quad<span>Match</span></div>
+      <div class="nav-links">
+        <a href="#features">Features</a>
+        <a href="#how">How it Works</a>
+        <a href="#testimonials">Testimonials</a>
+      </div>
+      <a href="#signup" class="nav-cta">Get Early Access</a>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <span class="badge">🎓 Now matching on 12 campuses</span>
+      <h1>Get tutored by <span class="highlight">your own classmates</span> — in minutes, not days.</h1>
+      <p class="subhead">QuadMatch instantly connects you with a verified, same-campus peer tutor for the subject you're stuck on. No advance booking. No strangers from across town. If no one's free locally, we tell you upfront and offer a transparent video fallback — never a hidden switch.</p>
+      <div class="hero-ctas">
+        <a href="#signup" class="btn-primary">Get Early Access</a>
+        <a href="#how" class="btn-secondary">See How It Works</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><div class="num">&lt;10min</div><div class="label">avg. same-campus match time</div></div>
+        <div class="stat"><div class="num">100%</div><div class="label">verified tutors, no exceptions</div></div>
+        <div class="stat"><div class="num">$15–$30</div><div class="label">tutor sets their own rate</div></div>
+      </div>
+    </div>
+  </header>
+
+  <section class="features" id="features">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Why QuadMatch</span>
+        <h2>Built for the way students actually study</h2>
+        <p>Three systems working together: instant local matching, an honest fallback, and a verification model tutors can actually afford.</p>
+      </div>
+      <div class="feature-grid">
+        <div class="feature-card">
+          <span class="priority-tag">Core Experience</span>
+          <div class="feature-icon">📍</div>
+          <h3>Same-Campus Instant Match</h3>
+          <p>Our matching engine connects your session request exclusively with verified tutors enrolled at your own campus — filtered by subject, availability, and rating. This is the default experience in 100% of launched campuses.</p>
+        </div>
+        <div class="feature-card">
+          <span class="priority-tag">Safety Net</span>
+          <div class="feature-icon">🛟</div>
+          <h3>SLA-Backed Fallback, Fully Disclosed</h3>
+          <p>No local match in 10 minutes? We auto-escalate to verified nearby-campus video tutors for 5 more minutes — clearly disclosed, never hidden. Still unmatched at 15 minutes? You get a $5 credit and a guaranteed match within 30 minutes. The hard 15-minute guarantee only activates once a campus clears our verified tutor density threshold; otherwise you see a real-time estimated wait.</p>
+        </div>
+        <div class="feature-card">
+          <span class="priority-tag">Tutor Trust</span>
+          <div class="feature-icon">✅</div>
+          <h3>Fair, Recoverable Verification</h3>
+          <p>Background checks cost $25 — tutors pay just $10 upfront, we front the rest. The full $25 comes back as earnings credit after 5 paid sessions in 60 days. Tutors set their own rate ($15–$30/hr), and our platform fee scales with session value (8%, floor $1.50, cap $3) instead of eating into higher-priced sessions.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="how" id="how">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">The Flow</span>
+        <h2>From "I'm stuck" to "I get it" in under 15 minutes</h2>
+      </div>
+      <div class="how-grid">
+        <div class="how-step">
+          <div class="step-num">1</div>
+          <h4>Request a session</h4>
+          <p>Pick your subject and describe what you're stuck on — no advance booking required.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">2</div>
+          <h4>Same-campus match</h4>
+          <p>We ping verified tutors at your school first. Most requests are accepted within 10 minutes.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">3</div>
+          <h4>Transparent fallback</h4>
+          <p>Still waiting? We disclose and offer a nearby-campus video tutor for 5 more minutes.</p>
+        </div>
+        <div class="how-step">
+          <div class="step-num">4</div>
+          <h4>Guaranteed or credited</h4>
+          <p>Matched within 15 min in qualified campuses — or get a $5 credit and priority queue.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="testimonials" id="testimonials">
+    <div class="container">
+      <div class="section-heading">
+        <span class="tag">Real People, Real Use Cases</span>
+        <h2>Trusted by students, tutors, and the team behind the scenes</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p class="quote">I was stuck on Calc II at 9:47pm — the campus center needed 48 hours notice. With QuadMatch I had a tutor from my own school on a call in 8 minutes. That's the only reason I didn't give up and just wing the homework.</p>
+          <div class="testimonial-person">
+            <div class="avatar">MC</div>
+            <div>
+              <div class="person-name">Maya Chen</div>
+              <div class="person-role">Sophomore, Biology major</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p class="quote">Other platforms wanted $50 upfront and took 20%+ off every session before I'd even proven I could tutor. QuadMatch only asked for $10, and I earned it all back — plus the rest of the $25 — within my first two weeks.</p>
+          <div class="testimonial-person">
+            <div class="avatar">DO</div>
+            <div>
+              <div class="person-name">Daniel Osei</div>
+              <div class="person-role">Junior, CS major, part-time tutor</div>
+            </div>
+          </div>
+        </div>
+        <div class="testimonial-card">
+          <div class="quote-mark">“</div>
+          <p class="quote">The density threshold logic changed how we launch campuses. We no longer risk activating a 15-minute guarantee before we actually have the tutor supply to back it — the system just won't turn it on until the numbers are real.</p>
+          <div class="testimonial-person">
+            <div class="avatar">PN</div>
+            <div>
+              <div class="person-name">Priya Nair</div>
+              <div class="person-role">Campus Launch Ops Manager</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-banner" id="signup">
+    <div class="container">
+      <h2>Be first on campus when we launch.</h2>
+      <p>Join the early access list — students get priority matching credits, tutors get waived onboarding fees for their first cohort.</p>
+      <a href="#" class="btn-primary">Get Early Access</a>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="logo">Quad<span style="color:#ffb547;">Match</span></div>
+          <p>Same-campus peer tutoring, on-demand — with a transparent, disclosed fallback when local help isn't available in time.</p>
+        </div>
+        <div class="footer-cols">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <a href="#features">Features</a>
+            <a href="#how">How it Works</a>
+            <a href="#testimonials">Testimonials</a>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <a href="#">About</a>
+            <a href="#">Careers</a>
+            <a href="#">Contact</a>
+          </div>
+          <div class="footer-col">
+            <h5>Legal</h5>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms of Service</a>
+            <a href="#">Tutor Agreement</a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        © 2024 QuadMatch, Inc. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
