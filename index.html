@@ -3,174 +3,116 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>CampusTutor — Instant Same-Campus Tutoring, On Your Schedule</title>
+<title>PeerLoop — Tutoring That Fits Your Campus, Your Schedule, Your Budget</title>
 <style>
   :root {
-    --navy: #0a1930;
-    --navy-light: #132a4d;
-    --navy-lighter: #1e3a63;
+    --navy-deep: #0a1128;
+    --navy: #0f1b3d;
+    --navy-light: #1b2a5b;
+    --accent: #5eead4;
+    --accent-warm: #fbbf24;
     --white: #ffffff;
-    --off-white: #f4f6fa;
-    --accent: #4fc3f7;
-    --accent-2: #7ee787;
-    --text-muted: #a9b6cc;
-    --radius: 14px;
+    --gray: #b8c1d9;
+    --gray-light: #e8ecf7;
   }
 
-  * { box-sizing: border-box; margin: 0; padding: 0; }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
 
-  html { scroll-behavior: smooth; }
+  html {
+    scroll-behavior: smooth;
+  }
 
   body {
-    font-family: 'Segoe UI', Roboto, -apple-system, BlinkMacSystemFont, sans-serif;
-    background: var(--white);
-    color: var(--navy);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--navy-deep);
+    color: var(--white);
     line-height: 1.6;
     overflow-x: hidden;
   }
 
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
+  a { text-decoration: none; }
 
   .container {
-    width: 100%;
-    max-width: 1180px;
+    max-width: 1160px;
     margin: 0 auto;
     padding: 0 24px;
   }
 
-  /* ---------- HEADER ---------- */
+  /* NAV */
   header {
     position: sticky;
     top: 0;
     z-index: 100;
-    background: var(--navy);
+    background: rgba(10, 17, 40, 0.9);
+    backdrop-filter: blur(10px);
     border-bottom: 1px solid rgba(255,255,255,0.08);
   }
 
-  .nav-wrap {
+  nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 24px;
-    max-width: 1180px;
+    max-width: 1160px;
     margin: 0 auto;
   }
 
   .logo {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-size: 1.3rem;
+    font-size: 1.35rem;
     font-weight: 800;
     color: var(--white);
+    letter-spacing: -0.5px;
   }
 
-  .logo span.mark {
-    font-size: 1.5rem;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    align-items: center;
-  }
-
-  .nav-links a {
-    color: var(--text-muted);
-    font-weight: 500;
-    font-size: 0.95rem;
-    transition: color 0.2s ease;
-  }
-
-  .nav-links a:hover { color: var(--white); }
+  .logo span { color: var(--accent); }
 
   .nav-cta {
     background: var(--accent);
-    color: var(--navy);
+    color: var(--navy-deep);
     padding: 10px 20px;
     border-radius: 999px;
     font-weight: 700;
     font-size: 0.9rem;
-    border: none;
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .nav-cta:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 20px rgba(79,195,247,0.35);
+    box-shadow: 0 8px 20px rgba(94, 234, 212, 0.3);
   }
 
-  .menu-toggle {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    background: none;
-    border: none;
-    cursor: pointer;
-  }
-
-  .menu-toggle span {
-    width: 26px;
-    height: 3px;
-    background: var(--white);
-    border-radius: 2px;
-  }
-
-  /* ---------- HERO ---------- */
+  /* HERO */
   .hero {
-    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 55%, var(--navy-lighter) 100%);
-    color: var(--white);
-    padding: 90px 24px 110px;
+    padding: 100px 24px 90px;
     text-align: center;
     position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -120px;
-    right: -120px;
-    width: 340px;
-    height: 340px;
-    background: radial-gradient(circle, rgba(79,195,247,0.25), transparent 70%);
-    border-radius: 50%;
-  }
-
-  .hero::after {
-    content: "";
-    position: absolute;
-    bottom: -140px;
-    left: -100px;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(126,231,135,0.18), transparent 70%);
-    border-radius: 50%;
+    background: radial-gradient(circle at 50% 0%, rgba(94,234,212,0.08), transparent 60%);
   }
 
   .badge {
     display: inline-block;
-    background: rgba(255,255,255,0.1);
-    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(94, 234, 212, 0.12);
     color: var(--accent);
-    padding: 8px 18px;
+    padding: 6px 16px;
     border-radius: 999px;
-    font-size: 0.85rem;
-    font-weight: 600;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.5px;
     margin-bottom: 24px;
-    letter-spacing: 0.3px;
+    border: 1px solid rgba(94,234,212,0.3);
   }
 
   .hero h1 {
-    font-size: clamp(2.1rem, 5vw, 3.4rem);
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
     font-weight: 800;
-    max-width: 900px;
-    margin: 0 auto 22px;
     line-height: 1.15;
-    position: relative;
+    letter-spacing: -1px;
+    max-width: 820px;
+    margin: 0 auto 22px;
   }
 
   .hero h1 .highlight {
@@ -178,546 +120,557 @@
   }
 
   .hero p.subhead {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: var(--text-muted);
-    max-width: 680px;
-    margin: 0 auto 40px;
-    position: relative;
+    font-size: clamp(1rem, 1.3vw, 1.2rem);
+    color: var(--gray);
+    max-width: 620px;
+    margin: 0 auto 38px;
   }
 
   .hero-ctas {
     display: flex;
-    justify-content: center;
     gap: 16px;
+    justify-content: center;
     flex-wrap: wrap;
-    position: relative;
   }
 
   .btn-primary {
     background: var(--accent);
-    color: var(--navy);
+    color: var(--navy-deep);
     padding: 16px 34px;
     border-radius: 999px;
-    font-weight: 700;
-    font-size: 1rem;
-    border: 2px solid var(--accent);
-    cursor: pointer;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    font-weight: 800;
+    font-size: 1.05rem;
     display: inline-block;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    box-shadow: 0 10px 30px rgba(94, 234, 212, 0.25);
   }
 
   .btn-primary:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(79,195,247,0.4);
+    box-shadow: 0 14px 36px rgba(94, 234, 212, 0.4);
   }
 
   .btn-secondary {
-    background: transparent;
     color: var(--white);
-    padding: 16px 34px;
+    padding: 16px 30px;
     border-radius: 999px;
     font-weight: 700;
-    font-size: 1rem;
-    border: 2px solid rgba(255,255,255,0.35);
-    cursor: pointer;
-    transition: background 0.15s ease, transform 0.15s ease;
-    display: inline-block;
+    font-size: 1.05rem;
+    border: 1px solid rgba(255,255,255,0.25);
+    transition: background 0.2s ease;
   }
 
   .btn-secondary:hover {
     background: rgba(255,255,255,0.08);
-    transform: translateY(-3px);
   }
 
   .hero-note {
-    margin-top: 18px;
-    font-size: 0.82rem;
-    color: var(--text-muted);
-    position: relative;
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--gray);
   }
 
-  /* ---------- STATS STRIP ---------- */
+  /* stats strip */
   .stats {
-    background: var(--off-white);
-    padding: 36px 24px;
-    border-bottom: 1px solid #e6eaf0;
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    padding: 40px 24px;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+    background: var(--navy);
   }
 
-  .stats .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    gap: 24px;
+  .stat {
     text-align: center;
   }
 
-  .stat-item h3 {
+  .stat .num {
     font-size: 1.8rem;
-    color: var(--navy);
     font-weight: 800;
+    color: var(--accent);
   }
 
-  .stat-item p {
+  .stat .label {
     font-size: 0.85rem;
-    color: #5b6b85;
+    color: var(--gray);
     margin-top: 4px;
   }
 
-  /* ---------- SECTION GENERAL ---------- */
-  section {
+  /* FEATURES */
+  .section {
     padding: 90px 24px;
   }
 
-  .section-head {
+  .section-header {
     text-align: center;
     max-width: 680px;
-    margin: 0 auto 56px;
+    margin: 0 auto 60px;
   }
 
-  .section-head .eyebrow {
+  .section-header .tag {
     color: var(--accent);
     font-weight: 700;
     font-size: 0.85rem;
+    letter-spacing: 1.5px;
     text-transform: uppercase;
-    letter-spacing: 1.2px;
-    margin-bottom: 12px;
-    display: block;
   }
 
-  .section-head h2 {
-    font-size: clamp(1.7rem, 4vw, 2.4rem);
-    color: var(--navy);
+  .section-header h2 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
     font-weight: 800;
-    margin-bottom: 14px;
+    letter-spacing: -0.5px;
+    margin-top: 12px;
   }
 
-  .section-head p {
-    color: #5b6b85;
-    font-size: 1.02rem;
+  .section-header p {
+    color: var(--gray);
+    margin-top: 14px;
+    font-size: 1.05rem;
   }
 
-  /* ---------- FEATURES ---------- */
   .features-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    max-width: 1180px;
-    margin: 0 auto;
   }
 
   .feature-card {
-    background: var(--white);
-    border: 1px solid #e6eaf0;
-    border-radius: var(--radius);
-    padding: 34px 28px;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-    position: relative;
+    background: var(--navy);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 36px 30px;
+    transition: transform 0.25s ease, border-color 0.25s ease;
   }
 
   .feature-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 18px 40px rgba(10,25,48,0.1);
+    border-color: rgba(94,234,212,0.4);
   }
 
   .feature-icon {
-    font-size: 2.2rem;
-    width: 64px;
-    height: 64px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: var(--off-white);
-    border-radius: 16px;
+    font-size: 2.4rem;
     margin-bottom: 20px;
-  }
-
-  .feature-priority {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    font-size: 0.72rem;
-    font-weight: 700;
-    color: var(--navy);
-    background: var(--off-white);
-    padding: 4px 10px;
-    border-radius: 999px;
+    display: inline-block;
+    background: rgba(94,234,212,0.1);
+    padding: 14px;
+    border-radius: 14px;
   }
 
   .feature-card h3 {
-    font-size: 1.2rem;
-    color: var(--navy);
+    font-size: 1.25rem;
+    font-weight: 700;
     margin-bottom: 12px;
-    font-weight: 800;
+    letter-spacing: -0.3px;
   }
 
   .feature-card p {
-    color: #5b6b85;
+    color: var(--gray);
     font-size: 0.95rem;
+    line-height: 1.7;
   }
 
-  .feature-card .caveat {
-    display: block;
-    margin-top: 14px;
-    font-size: 0.82rem;
-    color: #8a97ac;
-    background: var(--off-white);
-    padding: 10px 12px;
-    border-radius: 10px;
-    border-left: 3px solid var(--accent);
+  .feature-card .priority-tag {
+    display: inline-block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--navy-deep);
+    background: var(--accent-warm);
+    padding: 4px 10px;
+    border-radius: 999px;
+    margin-bottom: 16px;
+    letter-spacing: 0.5px;
   }
 
-  /* ---------- HOW IT WORKS ---------- */
-  .how {
-    background: var(--off-white);
-  }
-
-  .how-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 24px;
-    max-width: 1180px;
-    margin: 0 auto;
-  }
-
-  .step {
-    background: var(--white);
-    border-radius: var(--radius);
-    padding: 28px 22px;
-    text-align: center;
-    border: 1px solid #e6eaf0;
-  }
-
-  .step .num {
-    width: 36px;
-    height: 36px;
-    border-radius: 50%;
+  /* HOW IT WORKS-ish pricing preview */
+  .pricing-strip {
     background: var(--navy);
-    color: var(--white);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: 700;
-    margin: 0 auto 16px;
+    border-radius: 20px;
+    padding: 40px;
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .price-tier {
+    background: var(--navy-light);
+    border-radius: 14px;
+    padding: 24px;
+    text-align: center;
+  }
+
+  .price-tier h4 {
     font-size: 0.9rem;
+    color: var(--accent);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
   }
 
-  .step h4 {
-    font-size: 1rem;
-    color: var(--navy);
+  .price-tier .range {
+    font-size: 1.6rem;
+    font-weight: 800;
     margin-bottom: 8px;
-    font-weight: 700;
   }
 
-  .step p {
+  .price-tier .desc {
     font-size: 0.85rem;
-    color: #5b6b85;
+    color: var(--gray);
   }
 
-  /* ---------- TESTIMONIALS ---------- */
-  .testimonials-grid {
+  /* TESTIMONIALS */
+  .testimonials {
+    background: var(--navy);
+    padding: 90px 24px;
+  }
+
+  .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 28px;
-    max-width: 1180px;
-    margin: 0 auto;
   }
 
   .testimonial-card {
-    background: var(--navy);
-    color: var(--white);
-    border-radius: var(--radius);
-    padding: 32px 26px;
+    background: var(--navy-deep);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 18px;
+    padding: 32px 28px;
     display: flex;
     flex-direction: column;
-    gap: 18px;
+    gap: 20px;
   }
 
-  .testimonial-card .quote {
+  .testimonial-quote {
     font-size: 0.98rem;
-    color: #dbe4f2;
-    line-height: 1.65;
+    color: var(--gray-light);
+    line-height: 1.7;
+    font-style: italic;
   }
 
-  .testimonial-card .quote::before {
+  .testimonial-quote::before {
     content: "“";
-    font-size: 1.6rem;
     color: var(--accent);
-    margin-right: 4px;
+    font-size: 1.5rem;
   }
 
-  .person {
+  .testimonial-person {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-top: auto;
+    gap: 14px;
   }
 
   .avatar {
     width: 46px;
     height: 46px;
     border-radius: 50%;
-    background: var(--navy-lighter);
+    background: linear-gradient(135deg, var(--accent), var(--accent-warm));
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 800;
+    color: var(--navy-deep);
     font-size: 1rem;
-    color: var(--accent);
     flex-shrink: 0;
   }
 
-  .person h5 {
-    font-size: 0.95rem;
+  .person-info .name {
     font-weight: 700;
+    font-size: 0.95rem;
   }
 
-  .person span {
-    font-size: 0.78rem;
-    color: var(--text-muted);
+  .person-info .role {
+    font-size: 0.8rem;
+    color: var(--gray);
   }
 
-  /* ---------- CTA BANNER ---------- */
-  .cta-banner {
-    background: linear-gradient(120deg, var(--navy), var(--navy-lighter));
-    color: var(--white);
+  /* FINAL CTA */
+  .final-cta {
     text-align: center;
-    padding: 90px 24px;
-    border-radius: 0;
+    padding: 100px 24px;
+    background: linear-gradient(180deg, var(--navy-deep), var(--navy));
   }
 
-  .cta-banner h2 {
-    font-size: clamp(1.6rem, 4vw, 2.3rem);
+  .final-cta h2 {
+    font-size: clamp(1.8rem, 4vw, 2.8rem);
     font-weight: 800;
-    margin-bottom: 16px;
+    letter-spacing: -1px;
+    margin-bottom: 18px;
   }
 
-  .cta-banner p {
-    color: var(--text-muted);
-    max-width: 560px;
+  .final-cta p {
+    color: var(--gray);
+    max-width: 520px;
     margin: 0 auto 34px;
+    font-size: 1.05rem;
   }
 
-  .cta-form {
+  .form-row {
     display: flex;
-    justify-content: center;
     gap: 12px;
+    justify-content: center;
     flex-wrap: wrap;
     max-width: 480px;
-    margin: 0 auto 14px;
+    margin: 0 auto;
   }
 
-  .cta-form input[type="email"] {
+  .form-row input {
     flex: 1;
-    min-width: 220px;
-    padding: 15px 18px;
+    min-width: 200px;
+    padding: 15px 20px;
     border-radius: 999px;
-    border: none;
+    border: 1px solid rgba(255,255,255,0.2);
+    background: rgba(255,255,255,0.05);
+    color: var(--white);
     font-size: 0.95rem;
-    outline: none;
   }
 
-  .cta-form button {
+  .form-row input::placeholder {
+    color: var(--gray);
+  }
+
+  .form-row button {
     background: var(--accent);
-    color: var(--navy);
+    color: var(--navy-deep);
     border: none;
-    padding: 15px 28px;
+    padding: 15px 30px;
     border-radius: 999px;
-    font-weight: 700;
-    cursor: pointer;
+    font-weight: 800;
     font-size: 0.95rem;
-    transition: transform 0.15s ease, box-shadow 0.15s ease;
+    cursor: pointer;
+    transition: transform 0.2s ease;
   }
 
-  .cta-form button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 28px rgba(79,195,247,0.4);
+  .form-row button:hover {
+    transform: translateY(-2px);
   }
 
-  .cta-fine {
-    font-size: 0.78rem;
-    color: var(--text-muted);
-  }
-
-  /* ---------- FOOTER ---------- */
+  /* FOOTER */
   footer {
-    background: #060f20;
-    color: var(--text-muted);
-    padding: 60px 24px 24px;
+    background: var(--navy-deep);
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 50px 24px 30px;
   }
 
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 2fr 1fr 1fr 1fr;
-    gap: 40px;
-    max-width: 1180px;
-    margin: 0 auto 40px;
+  .footer-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
   }
 
-  .footer-brand .logo {
-    color: var(--white);
-    margin-bottom: 14px;
+  .footer-logo {
+    font-size: 1.2rem;
+    font-weight: 800;
   }
 
-  .footer-brand p {
-    font-size: 0.88rem;
-    line-height: 1.7;
-    max-width: 280px;
+  .footer-logo span { color: var(--accent); }
+
+  .footer-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
   }
 
-  .footer-col h5 {
-    color: var(--white);
+  .footer-links a {
+    color: var(--gray);
     font-size: 0.9rem;
-    margin-bottom: 16px;
-    font-weight: 700;
-  }
-
-  .footer-col ul li {
-    margin-bottom: 10px;
-  }
-
-  .footer-col ul li a {
-    font-size: 0.87rem;
-    color: var(--text-muted);
     transition: color 0.2s ease;
   }
 
-  .footer-col ul li a:hover {
+  .footer-links a:hover {
     color: var(--accent);
   }
 
   .footer-bottom {
-    max-width: 1180px;
-    margin: 0 auto;
+    text-align: center;
+    margin-top: 34px;
     padding-top: 24px;
-    border-top: 1px solid rgba(255,255,255,0.08);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 12px;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    color: var(--gray);
     font-size: 0.82rem;
   }
 
-  .socials {
-    display: flex;
-    gap: 14px;
-    font-size: 1.1rem;
-  }
-
-  /* ---------- RESPONSIVE ---------- */
+  /* RESPONSIVE */
   @media (max-width: 900px) {
     .features-grid,
-    .how-steps,
-    .testimonials-grid {
-      grid-template-columns: repeat(2, 1fr);
+    .testimonial-grid,
+    .pricing-strip {
+      grid-template-columns: 1fr;
     }
-    .footer-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-
-  @media (max-width: 720px) {
-    .nav-links { display: none; }
-    .menu-toggle { display: flex; }
   }
 
   @media (max-width: 600px) {
-    .features-grid,
-    .how-steps,
-    .testimonials-grid,
-    .footer-grid {
-      grid-template-columns: 1fr;
-    }
-    section { padding: 64px 20px; }
-    .hero { padding: 70px 20px 90px; }
-    .cta-form { flex-direction: column; }
-    .footer-bottom { flex-direction: column; text-align: center; }
+    .hero { padding: 80px 20px 60px; }
+    .stats { gap: 30px; }
+    .section { padding: 60px 20px; }
+    .testimonials { padding: 60px 20px; }
+    .final-cta { padding: 70px 20px; }
+    .footer-inner { flex-direction: column; text-align: center; }
+    nav { padding: 16px 20px; }
   }
 </style>
 </head>
 <body>
 
-<header>
-  <div class="nav-wrap">
-    <div class="logo"><span class="mark">🎓</span> CampusTutor</div>
-    <nav class="nav-links">
-      <a href="#features">Features</a>
-      <a href="#how">How It Works</a>
-      <a href="#testimonials">Stories</a>
-      <a href="#signup">Pricing</a>
+  <header>
+    <nav>
+      <div class="logo">Peer<span>Loop</span></div>
+      <a href="#signup" class="nav-cta">Get Early Access</a>
     </nav>
-    <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
-      <span></span><span></span><span></span>
-    </button>
-    <a href="#signup" class="nav-cta">Get Early Access</a>
-  </div>
-</header>
+  </header>
 
-<section class="hero">
-  <span class="badge">🚀 Launching on select campuses this term</span>
-  <h1>Get matched with a <span class="highlight">same-campus tutor</span> in minutes, not days.</h1>
-  <p class="subhead">
-    CampusTutor instantly connects you with verified peer tutors from your own campus for affordable,
-    on-demand help. No match nearby fast enough? We'll clearly tell you and offer a verified
-    nearby-campus video tutor as a transparent backup — never a hidden switch.
-  </p>
-  <div class="hero-ctas">
-    <a href="#signup" class="btn-primary">Get Early Access</a>
-    <a href="#how" class="btn-secondary">See How It Works</a>
-  </div>
-  <p class="hero-note">Free to join · Same-campus matching is always the default · Fallback is 100% disclosed upfront</p>
-</section>
+  <section class="hero">
+    <div class="badge">🎓 Now piloting on select campuses</div>
+    <h1>Find a tutor who <span class="highlight">gets it</span> — on your schedule, on your budget.</h1>
+    <p class="subhead">PeerLoop matches students with verified peer and near-peer tutors for affordable, on-demand help — in person or by video — at rates that actually reflect the subject.</p>
+    <div class="hero-ctas">
+      <a href="#signup" class="btn-primary">Get Early Access →</a>
+      <a href="#features" class="btn-secondary">See How It Works</a>
+    </div>
+    <p class="hero-note">No credit card required · Pilot launching on your campus soon</p>
+  </section>
 
-<section class="stats">
-  <div class="container">
-    <div class="stat-item">
-      <h3>10 min</h3>
-      <p>Target window for a same-campus match</p>
+  <div class="stats">
+    <div class="stat">
+      <div class="num">&lt;2 hrs</div>
+      <div class="label">Median match time (pilot data)</div>
     </div>
-    <div class="stat-item">
-      <h3>$15–$30/hr</h3>
-      <p>Tutors set their own rate, campus by campus</p>
+    <div class="stat">
+      <div class="num">10%</div>
+      <div class="label">Flat platform commission</div>
     </div>
-    <div class="stat-item">
-      <h3>100%</h3>
-      <p>Disclosed fallback — never a surprise switch</p>
+    <div class="stat">
+      <div class="num">3 tiers</div>
+      <div class="label">Transparent, subject-based pricing</div>
     </div>
-    <div class="stat-item">
-      <h3>1:50</h3>
-      <p>Minimum verified tutor-to-student density required before SLA activates</p>
+    <div class="stat">
+      <div class="num">24–48h</div>
+      <div class="label">Tutor verification turnaround</div>
     </div>
   </div>
-</section>
 
-<section id="features">
-  <div class="section-head">
-    <span class="eyebrow">What Makes Us Different</span>
-    <h2>Built around your campus first, always</h2>
-    <p>Every part of CampusTutor is designed to get you help from people who already know your courses — with clear, honest fallback if that's not possible in time.</p>
-  </div>
-  <div class="features-grid">
+  <section class="section" id="features">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">Why PeerLoop</div>
+        <h2>Built for real campus life, not a demo</h2>
+        <p>Every feature was shaped by pilot-campus data — not guesswork — so what we promise is what you actually get.</p>
+      </div>
 
-    <div class="feature-card">
-      <span class="feature-priority">Core Experience</span>
-      <div class="feature-icon">🎯</div>
-      <h3>Same-Campus Instant Match</h3>
-      <p>
-        Our matching engine connects your session request exclusively with verified tutors
-        enrolled at your own campus, based on subject, availability, and rating. This is the
-        default experience across every launched campus — not a fallback, the main event.
-      </p>
+      <div class="features-grid">
+        <div class="feature-card">
+          <span class="priority-tag">Core Feature</span>
+          <div class="feature-icon">⏱️</div>
+          <h3>Smart Matching &amp; Booking SLA</h3>
+          <p>Post a session request — subject, format (in-person or video), and urgency — and get matched to a verified, available tutor. Our pilot targets a median match time under 2 hours, backed by real tutor-supply data from campus recruitment drives, not an inflated promise.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="priority-tag">Core Feature</span>
+          <div class="feature-icon">💸</div>
+          <h3>Tiered, Subject-Based Pricing</h3>
+          <p>No more one-size-fits-all $20/hr. Rates scale with subject complexity and tutor credentials across three transparent tiers, with a fixed 10% commission and take-home pay shown before any tutor accepts a booking.</p>
+        </div>
+
+        <div class="feature-card">
+          <span class="priority-tag">Core Feature</span>
+          <div class="feature-icon">✅</div>
+          <h3>Lightweight Verified Tutors</h3>
+          <p>Launch verification means .edu confirmation plus transcript or grade-proof review within 24–48 hours — fast enough for peer tutoring, with full background checks planned as we scale in Phase 2.</p>
+        </div>
+      </div>
+
+      <div class="pricing-strip">
+        <div class="price-tier">
+          <h4>Tier 1 · Gen Ed</h4>
+          <div class="range">$12–18/hr</div>
+          <div class="desc">Intro courses, writing help, first-year essentials</div>
+        </div>
+        <div class="price-tier">
+          <h4>Tier 2 · Intermediate</h4>
+          <div class="range">$18–28/hr</div>
+          <div class="desc">Core major coursework, second/third-year subjects</div>
+        </div>
+        <div class="price-tier">
+          <h4>Tier 3 · Advanced</h4>
+          <div class="range">$28–45/hr</div>
+          <div class="desc">Specialized, upper-level, and credentialed subjects</div>
+        </div>
+      </div>
     </div>
+  </section>
 
-    <div class="feature-card">
-      <span class="feature-priority">Transparent Fallback</span>
-      <div class="feature-icon">📡</div>
-      <h3>SLA-Backed Nearby-Campus Fallback</h3>
-      <p>
-        No same-campus tutor accepts within 10 minutes? We disclose it immediately and auto-escalate
-        to a verified nearby-campus video tutor for up to 5 more minutes. Still unmatched at 15 minutes?
-        You get a $5 session credit and a guaranteed match within 30 minutes via priority queue.
-      </p>
-      <span class="caveat">
-        ⓘ The 15-minute guarantee is only live on campuses that have cleared our minimum verified
-        tutor density threshold. Below that, you'll see a real-time estimated wait instead — never a
-        false promise.
-      </span>
+  <section class="testimonials">
+    <div class="container">
+      <div class="section-header">
+        <div class="tag">From the pilot campus</div>
+        <h2>Students and tutors, both winning</h2>
+      </div>
+      <div class="testimonial-grid">
+        <div class="testimonial-card">
+          <p class="testimonial-quote">I needed help in organic chem before a midterm and the campus center was booked solid for a week. PeerLoop found me a tutor with a strong track record the same day.</p>
+          <div class="testimonial-person">
+            <div class="avatar">MC</div>
+            <div class="person-info">
+              <div class="name">Maria Chen</div>
+              <div class="role">Sophomore, Biology Major</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">Finally, a platform that pays me what upper-level chemistry tutoring is actually worth instead of a flat rate that ignores demand and difficulty.</p>
+          <div class="testimonial-person">
+            <div class="avatar">JW</div>
+            <div class="person-info">
+              <div class="name">Jordan Walker</div>
+              <div class="role">Senior, Chemistry Major (Tutor)</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card">
+          <p class="testimonial-quote">I just needed someone to read my essay draft, not a $45/hr grad tutor. The Tier 1 pricing was exactly right for what I needed.</p>
+          <div class="testimonial-person">
+            <div class="avatar">PN</div>
+            <div class="person-info">
+              <div class="name">Priya Nair</div>
+              <div class="role">Freshman, English Composition</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta" id="signup">
+    <h2>Be first on your campus.</h2>
+    <p>We're rolling out one pilot campus at a time. Join the early access list and help shape the tutoring marketplace built for students, by students.</p>
+    <form class="form-row" onsubmit="event.preventDefault(); this.querySelector('button').textContent='You\'re on the list! 🎉';">
+      <input type="email" placeholder="you@university.edu" required>
+      <button type="submit">Get Early Access</button>
+    </form>
+  </section>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-logo">Peer<span>Loop</span></div>
+      <div class="footer-links">
+        <a href="#features">Features</a>
+        <a href="#signup">Early Access</a>
+        <a href="#">For Tutors</a>
+        <a href="#">Contact</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      © 2024 PeerLoop, Inc. — Campus-pilot tutoring, done right.
+    </div>
+  </footer>
+
+</body>
+</html>
