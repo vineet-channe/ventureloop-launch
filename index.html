@@ -3,319 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>TutorVerified — Safe, Affordable Tutoring for University Students</title>
+<title>TutorGuard — Verified Tutors. Trusted Sessions.</title>
 <style>
-  :root {
-    --navy: #0a1a35;
-    --navy-light: #132a52;
-    --accent: #4dd0ff;
-    --accent-dark: #2196c9;
-    --white: #ffffff;
-    --gray: #b8c2d9;
-    --light-bg: #f5f7fb;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
-
-  * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    color: var(--navy);
+    background-color: #ffffff;
+    color: #0a1a3c;
     line-height: 1.6;
-    background: var(--white);
   }
 
-  a { text-decoration: none; }
+  a {
+    text-decoration: none;
+  }
 
-  /* NAV */
+  .container {
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* NAVBAR */
   header {
-    background: var(--navy);
+    background-color: #0a1a3c;
+    color: #ffffff;
     position: sticky;
     top: 0;
-    z-index: 1000;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.15);
   }
 
   nav {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding: 18px 24px;
+    max-width: 1150px;
+    margin: 0 auto;
   }
 
   .logo {
-    color: var(--white);
     font-size: 1.4rem;
     font-weight: 700;
+    color: #ffffff;
     letter-spacing: 0.5px;
   }
 
-  .logo span { color: var(--accent); }
+  .logo span {
+    color: #4fd1c5;
+  }
 
-  .nav-links {
+  nav .nav-links {
     display: flex;
     gap: 28px;
-    align-items: center;
   }
 
-  .nav-links a {
-    color: var(--gray);
-    font-weight: 500;
+  nav .nav-links a {
+    color: #dce4f5;
     font-size: 0.95rem;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
   }
 
-  .nav-links a:hover { color: var(--accent); }
+  nav .nav-links a:hover {
+    color: #4fd1c5;
+  }
 
   .nav-cta {
-    background: var(--accent);
-    color: var(--navy) !important;
+    background-color: #4fd1c5;
+    color: #0a1a3c !important;
     padding: 10px 20px;
     border-radius: 6px;
-    font-weight: 700;
+    font-weight: 600;
+    transition: background-color 0.2s ease;
   }
 
-  .nav-cta:hover { background: var(--accent-dark); }
-
-  .menu-toggle { display: none; }
+  .nav-cta:hover {
+    background-color: #38b2a5;
+  }
 
   /* HERO */
   .hero {
-    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, #0a1a3c 0%, #142a5c 100%);
+    color: #ffffff;
     padding: 90px 24px 100px;
     text-align: center;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: "";
-    position: absolute;
-    top: -100px;
-    right: -100px;
-    width: 400px;
-    height: 400px;
-    background: radial-gradient(circle, rgba(77,208,255,0.15) 0%, transparent 70%);
-    border-radius: 50%;
-  }
-
-  .hero-content {
-    max-width: 800px;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
   }
 
   .hero h1 {
-    font-size: 3rem;
+    font-size: 2.7rem;
+    max-width: 850px;
+    margin: 0 auto 24px;
     font-weight: 800;
-    line-height: 1.2;
-    margin-bottom: 20px;
+    line-height: 1.3;
   }
 
-  .hero h1 .highlight { color: var(--accent); }
+  .hero h1 .highlight {
+    color: #4fd1c5;
+  }
 
   .hero p.subhead {
-    font-size: 1.2rem;
-    color: var(--gray);
-    max-width: 640px;
-    margin: 0 auto 36px;
-  }
-
-  .hero-badges {
-    display: flex;
-    justify-content: center;
-    gap: 16px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
-  }
-
-  .badge {
-    background: rgba(255,255,255,0.08);
-    border: 1px solid rgba(255,255,255,0.15);
-    padding: 8px 16px;
-    border-radius: 30px;
-    font-size: 0.85rem;
-    color: var(--gray);
+    font-size: 1.15rem;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    color: #cbd5f0;
   }
 
   .cta-btn {
     display: inline-block;
-    background: var(--accent);
-    color: var(--navy);
+    background-color: #4fd1c5;
+    color: #0a1a3c;
     font-weight: 700;
-    font-size: 1.1rem;
-    padding: 16px 40px;
+    font-size: 1.05rem;
+    padding: 16px 38px;
     border-radius: 8px;
-    box-shadow: 0 8px 24px rgba(77,208,255,0.35);
-    transition: transform 0.2s, box-shadow 0.2s;
     border: none;
     cursor: pointer;
+    box-shadow: 0 8px 20px rgba(79, 209, 197, 0.35);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
   }
 
   .cta-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 12px 30px rgba(77,208,255,0.45);
-    background: var(--accent-dark);
-    color: var(--white);
+    box-shadow: 0 12px 26px rgba(79, 209, 197, 0.45);
   }
 
-  .cta-sub {
-    margin-top: 14px;
+  .hero-note {
+    margin-top: 18px;
     font-size: 0.85rem;
-    color: var(--gray);
+    color: #9fb0d8;
   }
 
-  /* TRUST STRIP */
-  .trust-strip {
-    background: var(--light-bg);
-    padding: 24px;
+  /* TRUST BAR */
+  .trust-bar {
+    background-color: #f4f7fc;
+    padding: 22px 24px;
     text-align: center;
   }
 
-  .trust-strip p {
-    color: var(--navy);
+  .trust-bar .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 32px;
+    font-size: 0.9rem;
+    color: #445a8f;
     font-weight: 600;
-    font-size: 0.95rem;
-    max-width: 900px;
-    margin: 0 auto;
-  }
-
-  .trust-strip strong { color: var(--accent-dark); }
-
-  /* SECTION SHARED */
-  section {
-    padding: 80px 24px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-
-  .section-header {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto 56px;
-  }
-
-  .section-header .tag {
-    color: var(--accent-dark);
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.85rem;
-    letter-spacing: 1.5px;
-  }
-
-  .section-header h2 {
-    font-size: 2.2rem;
-    color: var(--navy);
-    margin: 12px 0 16px;
-  }
-
-  .section-header p {
-    color: #56607a;
-    font-size: 1.05rem;
   }
 
   /* FEATURES */
-  .features-grid {
+  .features {
+    padding: 90px 24px;
+    background-color: #ffffff;
+  }
+
+  .section-heading {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 60px;
+  }
+
+  .section-heading h2 {
+    font-size: 2.1rem;
+    color: #0a1a3c;
+    margin-bottom: 16px;
+  }
+
+  .section-heading p {
+    color: #5a6b8c;
+    font-size: 1.05rem;
+  }
+
+  .feature-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 32px;
   }
 
   .feature-card {
-    background: var(--white);
-    border: 1px solid #e6eaf2;
+    background-color: #f8fafd;
+    border: 1px solid #e5ebf5;
     border-radius: 14px;
     padding: 36px 28px;
-    transition: transform 0.25s, box-shadow 0.25s;
-    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
   }
 
   .feature-card:hover {
     transform: translateY(-6px);
-    box-shadow: 0 16px 40px rgba(10,26,53,0.1);
+    box-shadow: 0 16px 30px rgba(10, 26, 60, 0.1);
   }
 
   .feature-icon {
-    font-size: 2.6rem;
+    font-size: 2.4rem;
     margin-bottom: 20px;
     display: inline-block;
   }
 
-  .feature-priority {
-    position: absolute;
-    top: 24px;
-    right: 24px;
-    background: var(--navy);
-    color: var(--accent);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 10px;
-    border-radius: 20px;
-  }
-
   .feature-card h3 {
-    color: var(--navy);
     font-size: 1.25rem;
-    margin-bottom: 12px;
+    margin-bottom: 14px;
+    color: #0a1a3c;
   }
 
   .feature-card p {
-    color: #56607a;
-    font-size: 0.96rem;
+    color: #5a6b8c;
+    font-size: 0.95rem;
   }
 
-  /* HOW IT WORKS / PRICING */
-  .pricing-band {
-    background: var(--navy);
-    color: var(--white);
+  .feature-tag {
+    display: inline-block;
+    margin-top: 16px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #0a1a3c;
+    background-color: #e6f7f5;
+    padding: 5px 12px;
     border-radius: 20px;
-    padding: 56px 40px;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-    gap: 40px;
   }
 
-  .pricing-band .text-block { flex: 1; min-width: 280px; }
-
-  .pricing-band h2 {
-    font-size: 1.9rem;
-    margin-bottom: 14px;
+  /* HOW IT WORKS */
+  .how-it-works {
+    background-color: #0a1a3c;
+    color: #ffffff;
+    padding: 90px 24px;
   }
 
-  .pricing-band p {
-    color: var(--gray);
-    max-width: 480px;
+  .how-it-works .section-heading h2 {
+    color: #ffffff;
   }
 
-  .price-tag {
-    background: rgba(77,208,255,0.12);
-    border: 2px solid var(--accent);
-    border-radius: 16px;
-    padding: 28px 40px;
+  .how-it-works .section-heading p {
+    color: #b9c6ea;
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .step {
     text-align: center;
-    min-width: 220px;
+    padding: 24px;
   }
 
-  .price-tag .num {
-    font-size: 3rem;
+  .step-num {
+    width: 46px;
+    height: 46px;
+    line-height: 46px;
+    border-radius: 50%;
+    background-color: #4fd1c5;
+    color: #0a1a3c;
     font-weight: 800;
-    color: var(--accent);
+    margin: 0 auto 18px;
   }
 
-  .price-tag .label {
-    color: var(--gray);
+  .step h4 {
+    margin-bottom: 10px;
+    font-size: 1.05rem;
+  }
+
+  .step p {
+    color: #b9c6ea;
     font-size: 0.9rem;
-    margin-top: 6px;
   }
 
-  /* PERSONAS / TESTIMONIALS */
+  /* TESTIMONIALS */
   .testimonials {
-    background: var(--light-bg);
+    padding: 90px 24px;
+    background-color: #f8fafd;
   }
 
   .testimonial-grid {
@@ -325,168 +287,175 @@
   }
 
   .testimonial-card {
-    background: var(--white);
+    background-color: #ffffff;
     border-radius: 14px;
-    padding: 32px 28px;
-    box-shadow: 0 6px 20px rgba(10,26,53,0.06);
-    display: flex;
-    flex-direction: column;
+    padding: 32px 26px;
+    border: 1px solid #e5ebf5;
+    position: relative;
   }
 
-  .quote-mark {
-    font-size: 2.4rem;
-    color: var(--accent);
-    font-weight: 800;
+  .testimonial-card .quote-mark {
+    font-size: 2.5rem;
+    color: #4fd1c5;
     line-height: 1;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
   }
 
   .testimonial-card p.quote {
-    color: #384158;
-    font-size: 0.98rem;
-    margin-bottom: 20px;
-    flex-grow: 1;
+    font-size: 0.97rem;
+    color: #33456e;
+    margin-bottom: 22px;
   }
 
-  .persona {
+  .testimonial-person {
     display: flex;
     align-items: center;
     gap: 14px;
   }
 
   .avatar {
-    width: 48px;
-    height: 48px;
+    width: 44px;
+    height: 44px;
     border-radius: 50%;
-    background: var(--navy);
-    color: var(--accent);
+    background-color: #0a1a3c;
+    color: #4fd1c5;
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
-    font-size: 1.1rem;
-    flex-shrink: 0;
+    font-size: 1rem;
   }
 
-  .persona-info h4 {
-    font-size: 0.98rem;
-    color: var(--navy);
+  .testimonial-person .name {
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: #0a1a3c;
   }
 
-  .persona-info span {
-    font-size: 0.82rem;
-    color: #7684a0;
+  .testimonial-person .role {
+    font-size: 0.8rem;
+    color: #7183a8;
   }
 
   /* FINAL CTA */
   .final-cta {
-    background: linear-gradient(135deg, var(--navy-light) 0%, var(--navy) 100%);
-    color: var(--white);
+    background: linear-gradient(135deg, #142a5c 0%, #0a1a3c 100%);
+    color: #ffffff;
     text-align: center;
-    border-radius: 20px;
-    padding: 64px 32px;
+    padding: 90px 24px;
   }
 
   .final-cta h2 {
     font-size: 2.1rem;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
 
   .final-cta p {
-    color: var(--gray);
-    max-width: 560px;
-    margin: 0 auto 32px;
+    color: #cbd5f0;
+    max-width: 600px;
+    margin: 0 auto 36px;
+    font-size: 1.05rem;
   }
 
   /* FOOTER */
   footer {
-    background: var(--navy);
-    color: var(--gray);
-    padding: 50px 24px 24px;
+    background-color: #071230;
+    color: #9fb0d8;
+    padding: 50px 24px 26px;
   }
 
   .footer-content {
-    max-width: 1200px;
-    margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 32px;
-    padding-bottom: 32px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    max-width: 1150px;
+    margin: 0 auto 30px;
   }
 
   .footer-brand h3 {
-    color: var(--white);
+    color: #ffffff;
     font-size: 1.3rem;
-    margin-bottom: 10px;
+    margin-bottom: 12px;
   }
 
-  .footer-brand h3 span { color: var(--accent); }
+  .footer-brand span {
+    color: #4fd1c5;
+  }
 
   .footer-brand p {
-    max-width: 320px;
+    max-width: 300px;
     font-size: 0.9rem;
   }
 
+  .footer-links {
+    display: flex;
+    gap: 60px;
+    flex-wrap: wrap;
+  }
+
   .footer-col h4 {
-    color: var(--white);
+    color: #ffffff;
     font-size: 0.95rem;
     margin-bottom: 14px;
   }
 
   .footer-col a {
     display: block;
-    color: var(--gray);
-    font-size: 0.9rem;
+    color: #9fb0d8;
+    font-size: 0.88rem;
     margin-bottom: 10px;
-    transition: color 0.2s;
+    transition: color 0.2s ease;
   }
 
-  .footer-col a:hover { color: var(--accent); }
+  .footer-col a:hover {
+    color: #4fd1c5;
+  }
 
   .footer-bottom {
-    max-width: 1200px;
-    margin: 24px auto 0;
     text-align: center;
-    font-size: 0.82rem;
-    color: #7684a0;
+    font-size: 0.8rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding-top: 22px;
+    max-width: 1150px;
+    margin: 0 auto;
   }
 
   /* RESPONSIVE */
   @media (max-width: 900px) {
-    .features-grid, .testimonial-grid { grid-template-columns: 1fr; }
-    .pricing-band { flex-direction: column; text-align: center; }
-    .pricing-band .text-block p { margin: 0 auto; }
+    .feature-grid,
+    .steps,
+    .testimonial-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
 
-  @media (max-width: 768px) {
-    .nav-links {
-      position: absolute;
-      top: 100%;
-      left: 0;
-      right: 0;
-      background: var(--navy);
-      flex-direction: column;
-      align-items: flex-start;
-      padding: 20px 24px;
+  @media (max-width: 700px) {
+    nav .nav-links {
       display: none;
-      gap: 16px;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.2);
     }
-    .nav-links.open { display: flex; }
-    .menu-toggle {
-      display: block;
-      background: none;
-      border: none;
-      color: var(--white);
-      font-size: 1.6rem;
-      cursor: pointer;
+
+    .hero h1 {
+      font-size: 2.1rem;
     }
-    .hero h1 { font-size: 2.1rem; }
-    .hero p.subhead { font-size: 1.05rem; }
-    section { padding: 60px 20px; }
-    .section-header h2 { font-size: 1.7rem; }
+
+    .hero p.subhead {
+      font-size: 1rem;
+    }
+
+    .feature-grid,
+    .steps,
+    .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .footer-content {
+      flex-direction: column;
+    }
+
+    .footer-links {
+      gap: 32px;
+    }
   }
 </style>
 </head>
@@ -494,176 +463,178 @@
 
 <header>
   <nav>
-    <div class="logo">Tutor<span>Verified</span></div>
-    <button class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">☰</button>
+    <div class="logo">Tutor<span>Guard</span></div>
     <div class="nav-links">
       <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
+      <a href="#how">How It Works</a>
       <a href="#testimonials">Testimonials</a>
       <a href="#institutions">For Institutions</a>
-      <a href="#signup" class="nav-cta">Get Early Access</a>
     </div>
+    <a href="#signup" class="nav-cta">Get Early Access</a>
   </nav>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <h1>Verified Tutors. <span class="highlight">Safe Sessions.</span><br>Affordable Help, On Demand.</h1>
-    <p class="subhead">TutorVerified connects university students with ID-verified, background-checked local tutors — with escrowed payments, a transparent 15% commission, and safety built into every session.</p>
-    <div class="hero-badges">
-      <span class="badge">✅ ID &amp; Background Verified</span>
-      <span class="badge">🔒 Escrowed Payments</span>
-      <span class="badge">💸 Flat 15% Commission — No Hidden Fees</span>
-    </div>
+  <div class="container">
+    <h1>Find <span class="highlight">ID-verified, background-checked</span> tutors on your campus — for less than the price of coffee runs.</h1>
+    <p class="subhead">TutorGuard is a mobile marketplace that matches university students with vetted local tutors for affordable, on-demand academic help. Every session is protected by escrowed payments and a transparent 15% platform fee — no hidden costs, no surprises.</p>
     <a href="#signup" class="cta-btn">Get Early Access</a>
-    <div class="cta-sub">Join the waitlist — free for early students &amp; tutors</div>
+    <p class="hero-note">Now onboarding students and tutors at partner universities.</p>
   </div>
 </section>
 
-<div class="trust-strip">
-  <p>🎓 Built with academic support directors in mind — <strong>FERPA-aware</strong>, <strong>$1M-insured</strong> in-person sessions, and full <strong>Trust &amp; Safety</strong> oversight.</p>
+<div class="trust-bar">
+  <div class="container">
+    <span>🪪 ID Verified Tutors</span>
+    <span>🔍 Background Checked</span>
+    <span>🔒 Escrowed Payments</span>
+    <span>💸 Transparent 15% Fee</span>
+  </div>
 </div>
 
-<section id="features">
-  <div class="section-header">
-    <span class="tag">Why TutorVerified</span>
-    <h2>Trust, Safety &amp; Affordability — Built In</h2>
-    <p>Every tutor on our platform passes a rigorous, multi-step verification process before they can ever meet a student in person.</p>
-  </div>
-
-  <div class="features-grid">
-    <div class="feature-card">
-      <span class="feature-priority">Priority 1</span>
-      <div class="feature-icon">🛡️</div>
-      <h3>Verification &amp; Background Check Pipeline</h3>
-      <p>Government ID liveness checks, transcript/degree cross-verification via registrar APIs, national + county-level criminal background checks (re-run annually or on any safety flag), and manual Trust &amp; Safety review within 48 hours. Only fully verified tutors earn the badge and can list in-person sessions.</p>
+<section class="features" id="features">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Built for safety, priced for students</h2>
+      <p>Three core systems make TutorGuard the only marketplace students, tutors, and universities can trust.</p>
     </div>
+    <div class="feature-grid">
 
-    <div class="feature-card">
-      <span class="feature-priority">Priority 2</span>
-      <div class="feature-icon">🚨</div>
-      <h3>Safety &amp; Trust Toolkit</h3>
-      <p>Required liability waivers, GPS check-in/check-out with 15-minute no-show auto-flagging, an in-app SOS button linked to campus security &amp; 911, and mandatory $1M tutor liability micro-insurance for every in-person session — all incidents escalate to Trust &amp; Safety within the hour.</p>
-    </div>
+      <div class="feature-card">
+        <span class="feature-icon">🛡️</span>
+        <h3>Verification & Background Check Pipeline</h3>
+        <p>Every tutor completes a mandatory onboarding flow: government ID liveness verification, degree/enrollment cross-check against registrar records, and a national + county-level background check re-run every 12 months or upon any safety flag. A 2-person Trust & Safety team manually reviews mismatches within 48 hours. The Verified badge only appears once all checks pass — unverified tutors cannot list in-person sessions.</p>
+        <span class="feature-tag">Core Safety System</span>
+      </div>
 
-    <div class="feature-card">
-      <span class="feature-priority">Priority 3</span>
-      <div class="feature-icon">🏛️</div>
-      <h3>Institutional Partner Dashboard</h3>
-      <p>A compliance center for university administrators: verification status, insurance certificates, FERPA-compliant data agreements, incident logs, and campus tutor pool stats — with a co-brandable landing page and bulk licensing options.</p>
+      <div class="feature-card">
+        <span class="feature-icon">🚨</span>
+        <h3>Safety & Trust Toolkit</h3>
+        <p>Every in-person session is protected: required liability waiver before a first meeting, GPS-tagged check-in/check-out with automatic no-show flagging after 15 minutes, an in-app SOS button with location sharing, and $1M tutor liability micro-insurance included in the platform commission. All incidents auto-escalate to Trust & Safety within 1 hour.</p>
+        <span class="feature-tag">Session Protection</span>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🏫</span>
+        <h3>Institutional Partner Dashboard</h3>
+        <p>A dedicated dashboard gives university administrators visibility into aggregate tutor verification status, insurance certificates, data-sharing agreement status, and incident logs. Institutions can gate access to only verified-and-insured tutors, launch a co-branded landing page, and unlock bulk licensing pricing.</p>
+        <span class="feature-tag">For Universities</span>
+      </div>
+
     </div>
   </div>
 </section>
 
-<section id="pricing">
-  <div class="pricing-band">
-    <div class="text-block">
-      <h2>Transparent Pricing. Escrowed Protection.</h2>
-      <p>Every session's payment is held in escrow until it's confirmed complete. We take a flat 15% platform commission — no surprise fees, no markup games. That commission also funds tutor liability insurance and 24/7 Trust &amp; Safety coverage.</p>
+<section class="how-it-works" id="how">
+  <div class="container">
+    <div class="section-heading">
+      <h2>How TutorGuard works</h2>
+      <p>Simple for students, rewarding for tutors, accountable for institutions.</p>
     </div>
-    <div class="price-tag">
-      <div class="num">15%</div>
-      <div class="label">Flat platform commission<br>Escrow-protected payouts</div>
-    </div>
-  </div>
-</section>
-
-<section id="testimonials" class="testimonials">
-  <div class="section-header">
-    <span class="tag">Real People, Real Needs</span>
-    <h2>Trusted by Students, Tutors &amp; Administrators</h2>
-  </div>
-
-  <div class="testimonial-grid">
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <p class="quote">As a sophomore juggling work-study and Calc II, I couldn't afford a $40/hr tutor — and I definitely wasn't going to meet a stranger off some random group chat. Seeing the verified badge and background-check status before booking made all the difference.</p>
-      <div class="persona">
-        <div class="avatar">MC</div>
-        <div class="persona-info">
-          <h4>Maya Chen</h4>
-          <span>Sophomore, Biology Major</span>
-        </div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">1</div>
+        <h4>Post or search a request</h4>
+        <p>Students post what subject and budget they need — tutors browse and apply, or students book instantly.</p>
       </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <p class="quote">I wanted to earn extra income tutoring, but building trust with strangers online used to take forever — and I was nervous about no-shows and slow payouts. My verified profile gets me booked fast, and escrow means I always get paid on time.</p>
-      <div class="persona">
-        <div class="avatar">JP</div>
-        <div class="persona-info">
-          <h4>Jordan Patel</h4>
-          <span>Senior, Applied Math Major &amp; Tutor</span>
-        </div>
+      <div class="step">
+        <div class="step-num">2</div>
+        <h4>Match with a verified tutor</h4>
+        <p>Only ID-verified, background-checked tutors can accept in-person sessions. Payment is held in escrow.</p>
       </div>
-    </div>
-
-    <div class="testimonial-card">
-      <div class="quote-mark">"</div>
-      <p class="quote">I couldn't recommend a tutoring app to 12,000 students without proof of insurance, background checks, and FERPA-compliant data handling. The institutional dashboard finally gave our office the documentation we needed to officially endorse it.</p>
-      <div class="persona">
-        <div class="avatar">ER</div>
-        <div class="persona-info">
-          <h4>Dr. Elena Ruiz</h4>
-          <span>Director of Academic Success</span>
-        </div>
+      <div class="step">
+        <div class="step-num">3</div>
+        <h4>Meet, learn, and pay safely</h4>
+        <p>Check in via GPS, complete the session, and funds release automatically — minus a transparent 15% fee.</p>
       </div>
     </div>
   </div>
 </section>
 
-<section id="institutions">
-  <div class="section-header">
-    <span class="tag">For Universities</span>
-    <h2>Give Your Campus a Safer, Endorsable Option</h2>
-    <p>Gate access to only verified + insured tutors, review compliance documentation in one place, and unlock bulk licensing pricing for your institution.</p>
-  </div>
-  <div class="final-cta">
-    <h2>Ready to Bring Safe, Affordable Tutoring to Your Campus?</h2>
-    <p>Join students, tutors, and academic leaders shaping the future of peer-to-peer academic support.</p>
-    <a href="#signup" class="cta-btn">Get Early Access</a>
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-heading">
+      <h2>Trusted by students, tutors, and universities</h2>
+      <p>Early feedback from the people TutorGuard was built for.</p>
+    </div>
+    <div class="testimonial-grid">
+
+      <div class="testimonial-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">I needed Calc II help twice a week on a tight budget, and I could actually see that my tutor was verified before agreeing to meet in person. That mattered more to me than anything.</p>
+        <div class="testimonial-person">
+          <div class="avatar">MC</div>
+          <div>
+            <div class="name">Maya Chen</div>
+            <div class="role">Sophomore, Biology Major</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">The verified badge helped me build trust with new students right away instead of starting from zero. Escrowed payments also mean I'm not chasing anyone down after a session.</p>
+        <div class="testimonial-person">
+          <div class="avatar">JP</div>
+          <div>
+            <div class="name">Jordan Patel</div>
+            <div class="role">Senior, Applied Math Major, Independent Tutor</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <div class="quote-mark">“</div>
+        <p class="quote">Having a dashboard where I can review verification status, insurance coverage, and incident logs is what makes it possible for us to consider an official endorsement.</p>
+        <div class="testimonial-person">
+          <div class="avatar">ER</div>
+          <div>
+            <div class="name">Dr. Elena Ruiz</div>
+            <div class="role">Director of Academic Success</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
-<section id="signup">
-  <div class="section-header">
-    <span class="tag">Join the Waitlist</span>
-    <h2>Be First in Line</h2>
-    <p>Get early access as a student, tutor, or institutional partner. No spam — just launch updates and early perks.</p>
-  </div>
-  <div style="text-align:center;">
-    <a href="mailto:hello@tutorverified.com?subject=Early%20Access%20Request" class="cta-btn">Get Early Access</a>
+<section class="final-cta" id="signup">
+  <div class="container">
+    <h2>Ready to learn or teach with confidence?</h2>
+    <p>Join the early access list and be the first to try TutorGuard when we launch at your campus.</p>
+    <a href="#" class="cta-btn">Get Early Access</a>
   </div>
 </section>
 
-<footer>
+<footer id="institutions">
   <div class="footer-content">
     <div class="footer-brand">
-      <h3>Tutor<span>Verified</span></h3>
-      <p>The mobile marketplace matching students with ID-verified, background-checked local tutors — safe, affordable, on-demand academic help.</p>
+      <h3>Tutor<span>Guard</span></h3>
+      <p>The verified, on-demand tutoring marketplace built for university students, tutors, and academic institutions.</p>
     </div>
-    <div class="footer-col">
-      <h4>Product</h4>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="#institutions">For Institutions</a>
-    </div>
-    <div class="footer-col">
-      <h4>Company</h4>
-      <a href="#">About</a>
-      <a href="#">Trust &amp; Safety</a>
-      <a href="#">Careers</a>
-    </div>
-    <div class="footer-col">
-      <h4>Legal</h4>
-      <a href="#">Privacy Policy</a>
-      <a href="#">Terms of Service</a>
-      <a href="#">FERPA Compliance</a>
+    <div class="footer-links">
+      <div class="footer-col">
+        <h4>Product</h4>
+        <a href="#features">Features</a>
+        <a href="#how">How It Works</a>
+        <a href="#signup">Get Early Access</a>
+      </div>
+      <div class="footer-col">
+        <h4>Company</h4>
+        <a href="#">About</a>
+        <a href="#">Trust & Safety</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>For Institutions</h4>
+        <a href="#">Partner Dashboard</a>
+        <a href="#">Request a Demo</a>
+      </div>
     </div>
   </div>
   <div class="footer-bottom">
-    &copy; 2024 TutorVerified, Inc. All rights reserved.
+    &copy; 2024 TutorGuard, Inc. All rights reserved.
   </div>
 </footer>
 
