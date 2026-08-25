@@ -5,358 +5,466 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>TutorLink — Verified Tutors, On Your Terms</title>
 <style>
-  * { margin: 0; padding: 0; box-sizing: border-box; }
+  :root {
+    --navy: #0a1a33;
+    --navy-light: #132a4d;
+    --accent: #4fd1c5;
+    --white: #ffffff;
+    --gray: #b8c2d9;
+    --gray-dark: #7c8aa8;
+  }
+
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
   body {
-    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
-    color: #1a1a2e;
-    background: #ffffff;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    background: var(--white);
+    color: var(--navy);
     line-height: 1.6;
   }
-  a { text-decoration: none; }
 
-  /* NAV */
+  a { text-decoration: none; color: inherit; }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  /* Header */
   header {
-    background: #0a1128;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    background: var(--navy);
+    padding: 20px 0;
     position: sticky;
     top: 0;
     z-index: 100;
   }
-  header .logo {
-    color: #fff;
+
+  header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo {
+    color: var(--white);
     font-size: 1.5rem;
     font-weight: 700;
     letter-spacing: 0.5px;
   }
-  header .logo span { color: #4fd1c5; }
-  header nav a {
-    color: #cbd5e0;
+
+  .logo span { color: var(--accent); }
+
+  nav a {
+    color: var(--gray);
     margin-left: 28px;
     font-size: 0.95rem;
     transition: color 0.2s;
   }
-  header nav a:hover { color: #4fd1c5; }
 
-  /* HERO */
+  nav a:hover { color: var(--white); }
+
+  /* Hero */
   .hero {
-    background: linear-gradient(135deg, #0a1128 0%, #142850 100%);
-    color: #fff;
-    padding: 100px 40px 90px;
+    background: linear-gradient(160deg, var(--navy) 0%, var(--navy-light) 100%);
+    color: var(--white);
+    padding: 100px 0 90px;
     text-align: center;
   }
+
   .hero h1 {
     font-size: 2.8rem;
-    max-width: 850px;
+    max-width: 800px;
     margin: 0 auto 20px;
     font-weight: 800;
     line-height: 1.25;
   }
-  .hero h1 span { color: #4fd1c5; }
+
+  .hero h1 span { color: var(--accent); }
+
   .hero p {
     font-size: 1.15rem;
-    color: #cbd5e0;
-    max-width: 620px;
+    color: var(--gray);
+    max-width: 640px;
     margin: 0 auto 36px;
   }
-  .cta-btn {
+
+  .btn-cta {
     display: inline-block;
-    background: #4fd1c5;
-    color: #0a1128;
+    background: var(--accent);
+    color: var(--navy);
     font-weight: 700;
-    padding: 16px 38px;
+    padding: 16px 36px;
     border-radius: 8px;
     font-size: 1.05rem;
-    transition: transform 0.2s, background 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-  .cta-btn:hover {
-    background: #38b2ac;
-    transform: translateY(-2px);
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 8px 24px rgba(79, 209, 197, 0.25);
   }
 
-  section { padding: 80px 40px; }
+  .btn-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(79, 209, 197, 0.35);
+  }
+
+  /* Section headings */
+  .section {
+    padding: 90px 0;
+  }
+
   .section-title {
     text-align: center;
     font-size: 2.1rem;
-    color: #0a1128;
-    margin-bottom: 12px;
     font-weight: 800;
+    margin-bottom: 12px;
+    color: var(--navy);
   }
-  .section-sub {
+
+  .section-subtitle {
     text-align: center;
-    color: #556;
-    max-width: 640px;
-    margin: 0 auto 55px;
+    color: var(--gray-dark);
+    max-width: 620px;
+    margin: 0 auto 60px;
     font-size: 1.05rem;
   }
 
-  /* FEATURES */
+  /* Features */
   .features {
-    background: #f7fafc;
+    background: #f7f9fc;
   }
+
   .feature-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1150px;
-    margin: 0 auto;
+    gap: 32px;
   }
+
   .feature-card {
-    background: #fff;
+    background: var(--white);
     border-radius: 14px;
-    padding: 34px 28px;
-    box-shadow: 0 4px 18px rgba(10, 17, 40, 0.08);
-    border-top: 4px solid #4fd1c5;
-    transition: transform 0.2s;
+    padding: 36px 28px;
+    box-shadow: 0 4px 20px rgba(10, 26, 51, 0.06);
+    border-top: 4px solid var(--accent);
   }
-  .feature-card:hover { transform: translateY(-6px); }
+
   .feature-icon {
     font-size: 2.4rem;
-    margin-bottom: 16px;
+    margin-bottom: 18px;
     display: block;
   }
+
   .feature-card h3 {
     font-size: 1.25rem;
     margin-bottom: 12px;
-    color: #0a1128;
-  }
-  .feature-card p {
-    font-size: 0.96rem;
-    color: #445;
+    color: var(--navy);
   }
 
-  /* TRUST & SAFETY */
-  .safety {
-    background: #0a1128;
-    color: #fff;
+  .feature-card p {
+    color: var(--gray-dark);
+    font-size: 0.96rem;
+    margin-bottom: 10px;
   }
-  .safety .section-title, .safety .section-sub { color: #fff; }
-  .safety .section-sub { color: #a9b7d0; }
-  .safety-grid {
+
+  .feature-card ul {
+    color: var(--gray-dark);
+    font-size: 0.93rem;
+    margin: 10px 0 0 18px;
+  }
+
+  .feature-card ul li { margin-bottom: 6px; }
+
+  .badge-note {
+    display: inline-block;
+    background: #eafaf8;
+    color: #0f7a6e;
+    font-size: 0.78rem;
+    font-weight: 700;
+    padding: 4px 10px;
+    border-radius: 20px;
+    margin-top: 12px;
+  }
+
+  /* Trust & Safety */
+  .trust {
+    background: var(--navy);
+    color: var(--white);
+  }
+
+  .trust .section-title { color: var(--white); }
+  .trust .section-subtitle { color: var(--gray); }
+
+  .trust-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-    max-width: 1000px;
-    margin: 0 auto;
-  }
-  .safety-item {
-    background: rgba(255,255,255,0.05);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 12px;
-    padding: 24px;
-  }
-  .safety-item h4 {
-    font-size: 1.05rem;
-    margin-bottom: 8px;
-    color: #4fd1c5;
-  }
-  .safety-item p {
-    font-size: 0.92rem;
-    color: #cbd5e0;
+    gap: 28px;
   }
 
-  /* TESTIMONIALS */
-  .testimonials {
-    background: #fff;
+  .trust-card {
+    background: var(--navy-light);
+    border-radius: 14px;
+    padding: 28px;
+    border-left: 4px solid var(--accent);
   }
+
+  .trust-card h4 {
+    font-size: 1.05rem;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .trust-card p {
+    color: var(--gray);
+    font-size: 0.93rem;
+  }
+
+  /* Testimonials */
+  .testimonials {
+    background: #f7f9fc;
+  }
+
   .testimonial-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 30px;
-    max-width: 1150px;
-    margin: 0 auto;
+    gap: 28px;
   }
+
   .testimonial-card {
-    background: #f7fafc;
+    background: var(--white);
     border-radius: 14px;
-    padding: 30px 26px;
-    box-shadow: 0 4px 14px rgba(10,17,40,0.06);
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(10, 26, 51, 0.06);
   }
+
   .testimonial-card p.quote {
     font-style: italic;
-    color: #334;
-    margin-bottom: 18px;
+    color: var(--navy);
+    margin-bottom: 20px;
     font-size: 0.98rem;
   }
-  .testimonial-card .person {
+
+  .testimonial-author {
     display: flex;
     align-items: center;
     gap: 12px;
   }
+
   .avatar {
     width: 44px;
     height: 44px;
     border-radius: 50%;
-    background: #0a1128;
-    color: #4fd1c5;
+    background: var(--navy);
+    color: var(--accent);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 700;
     font-size: 1rem;
   }
-  .person-name { font-weight: 700; color: #0a1128; font-size: 0.95rem; }
-  .person-role { font-size: 0.82rem; color: #667; }
 
-  /* FINAL CTA */
-  .final-cta {
-    background: linear-gradient(135deg, #142850, #0a1128);
-    color: #fff;
-    text-align: center;
+  .author-info strong {
+    display: block;
+    font-size: 0.95rem;
+    color: var(--navy);
   }
+
+  .author-info span {
+    font-size: 0.82rem;
+    color: var(--gray-dark);
+  }
+
+  /* Final CTA */
+  .final-cta {
+    background: linear-gradient(160deg, var(--navy-light) 0%, var(--navy) 100%);
+    color: var(--white);
+    text-align: center;
+    padding: 90px 0;
+  }
+
   .final-cta h2 {
     font-size: 2rem;
-    margin-bottom: 14px;
+    margin-bottom: 16px;
+    font-weight: 800;
   }
+
   .final-cta p {
-    color: #cbd5e0;
-    margin-bottom: 30px;
+    color: var(--gray);
+    max-width: 520px;
+    margin: 0 auto 32px;
   }
 
-  /* FOOTER */
+  /* Footer */
   footer {
-    background: #060a1c;
-    color: #8892a8;
+    background: #071223;
+    color: var(--gray-dark);
     text-align: center;
-    padding: 30px 20px;
-    font-size: 0.88rem;
+    padding: 36px 0;
+    font-size: 0.9rem;
   }
-  footer strong { color: #fff; }
 
-  /* RESPONSIVE */
+  footer strong { color: var(--white); }
+
+  /* Responsive */
   @media (max-width: 900px) {
-    .feature-grid, .testimonial-grid { grid-template-columns: 1fr; }
-    .safety-grid { grid-template-columns: 1fr; }
+    .feature-grid, .trust-grid, .testimonial-grid {
+      grid-template-columns: 1fr;
+    }
     .hero h1 { font-size: 2.1rem; }
-    header nav { display: none; }
+    nav { display: none; }
   }
 </style>
 </head>
 <body>
 
 <header>
-  <div class="logo">Tutor<span>Link</span></div>
-  <nav>
-    <a href="#features">Features</a>
-    <a href="#safety">Safety</a>
-    <a href="#testimonials">Testimonials</a>
-  </nav>
+  <div class="container">
+    <div class="logo">Tutor<span>Link</span></div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#trust">Trust & Safety</a>
+      <a href="#testimonials">Testimonials</a>
+    </nav>
+  </div>
 </header>
 
 <section class="hero">
-  <h1>Find the Right Tutor, <span>Virtual or In Person</span> — On Your Schedule</h1>
-  <p>TutorLink connects university students with academic-verified peer and professional tutors for on-demand help. Book a video session in minutes, or get matched with someone nearby — with the right safeguards for each.</p>
-  <a href="#signup" class="cta-btn">Get Early Access</a>
-</section>
-
-<section class="features" id="features">
-  <h2 class="section-title">Built for How Students Actually Study</h2>
-  <p class="section-sub">Three core systems make sure every session is a good match — academically and logistically.</p>
-  <div class="feature-grid">
-
-    <div class="feature-card">
-      <span class="feature-icon">🎓</span>
-      <h3>Two-Tier Verified Badge</h3>
-      <p>A tutor's "Verified" badge shows exactly what's been checked. <strong>Enrollment status</strong> is confirmed through a clearinghouse-style API, which attests active enrollment or degree completion only. <strong>Academic performance</strong> is verified separately: our internal team reviews an uploaded unofficial transcript against a 3.0+ GPA benchmark for subject-matched courses, since no external database can confirm course-level GPA. To keep this honest, 10% of tutors are randomly audited each month using an official registrar-issued transcript. Badges display each sub-check individually — so you know exactly what's been confirmed, not just that a badge exists.</p>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">🔀</span>
-      <h3>Session Modality Selector</h3>
-      <p>At booking, you choose <strong>Virtual</strong> or <strong>In-Person</strong> — and that choice determines what happens next. Virtual sessions run on an encrypted video platform with optional recording and chat moderation, with no location data collected. In-Person sessions activate location-based matching and our full in-person safety protocol, including a required emergency contact before the session is confirmed. Every session is tagged by modality so the right protections apply automatically, every time.</p>
-    </div>
-
-    <div class="feature-card">
-      <span class="feature-icon">📍</span>
-      <h3>On-Demand Geo-Matching</h3>
-      <p>For in-person sessions, we start by searching a 3-mile radius and expand by 2 miles every 5 minutes — up to a 15-mile cap — until a match is found. Virtual sessions skip this entirely: they're matched instantly by subject and availability, regardless of where you or your tutor are located. One app, two very different ways to get help fast.</p>
-    </div>
-
+  <div class="container">
+    <h1>Verified tutors. <span>On your schedule.</span> On your terms.</h1>
+    <p>TutorLink connects university students with academically verified peer and professional tutors — for virtual or in-person sessions — with safety measures tailored to how you choose to meet.</p>
+    <a href="#cta" class="btn-cta">Get Early Access</a>
   </div>
 </section>
 
-<section class="safety" id="safety">
-  <h2 class="section-title">Safety, Built Into the Booking Flow</h2>
-  <p class="section-sub">In-person sessions carry different risks than virtual ones — so we treat them differently, not identically.</p>
-  <div class="safety-grid">
+<section class="section features" id="features">
+  <div class="container">
+    <h2 class="section-title">Built for trust, not just convenience</h2>
+    <p class="section-subtitle">Every core feature is designed around one question: how do we verify what we claim, and how do we avoid overpromising on what we can't?</p>
 
-    <div class="safety-item">
-      <h4>Mandatory Emergency Contact</h4>
-      <p>Before any in-person session can be booked, students are required to designate an emergency contact. This step cannot be skipped — it's a prerequisite for confirming the session, not an optional add-on.</p>
+    <div class="feature-grid">
+
+      <div class="feature-card">
+        <span class="feature-icon">🎓</span>
+        <h3>Two-Tier Verified Badge System</h3>
+        <p>A tutor's "Verified" badge is built from two independent checks, shown separately so you know exactly what's been confirmed:</p>
+        <ul>
+          <li><strong>Enrollment check:</strong> Confirmed via a clearinghouse-style third-party API, which attests active enrollment or degree status only.</li>
+          <li><strong>GPA check:</strong> Verified internally — tutors upload an unofficial transcript, reviewed by our verification team against a 3.0+ threshold in subject-matched courses.</li>
+        </ul>
+        <p>Because no external API can confirm course-level GPA, this is a manual review process, reinforced by a random 10% monthly audit requiring an official registrar transcript.</p>
+        <span class="badge-note">✔ Enrollment &nbsp;|&nbsp; ✔ GPA — shown independently</span>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">🔀</span>
+        <h3>Session Modality Selector (Virtual or In-Person)</h3>
+        <p>At booking, you choose exactly how you want to meet — this choice determines which safety and matching systems apply:</p>
+        <ul>
+          <li><strong>Virtual:</strong> Encrypted video via Twilio Video, with optional recording and chat moderation. No geo-matching or physical safety protocol applies, since no in-person meeting occurs.</li>
+          <li><strong>In-Person:</strong> Activates geo-radius matching, mandatory background screening tier, and a required emergency contact step before the booking can be confirmed.</li>
+        </ul>
+        <p>This modality flag is stored on every session and drives which downstream protections are enforced.</p>
+      </div>
+
+      <div class="feature-card">
+        <span class="feature-icon">📍</span>
+        <h3>On-Demand Geo-Matching (In-Person Only)</h3>
+        <p>Applies exclusively to in-person sessions. Virtual sessions are matched instantly by subject and availability, with no location constraint.</p>
+        <ul>
+          <li>Starts with a 3-mile radius search.</li>
+          <li>Expands by 2 miles every 5 minutes if no match is found.</li>
+          <li>Caps at a 15-mile radius.</li>
+        </ul>
+        <p>Radius expansion and check-in logic never apply to virtual bookings — they're two separate matching paths by design.</p>
+      </div>
+
     </div>
-
-    <div class="safety-item">
-      <h4>Identity & Background Screening</h4>
-      <p>Tutors offering in-person sessions must complete identity verification and pass a background screening before approval. We're publishing full details on scope, provider, and renewal cadence in our Trust & Safety Center as this program is finalized — we'd rather be precise than vague about what's actually covered.</p>
-    </div>
-
-    <div class="safety-item">
-      <h4>Modality-Specific Protections</h4>
-      <p>Geo-matching, radius expansion, and in-person safety check-ins apply only to in-person sessions. Virtual sessions rely instead on encrypted video, optional recording, and chat moderation — matched instantly with no location logic involved.</p>
-    </div>
-
-    <div class="safety-item">
-      <h4>Transparent Verification Status</h4>
-      <p>Every tutor profile shows which checks have passed — enrollment, GPA review, or both — so students and parents can see exactly what "verified" means for that tutor, rather than relying on a single catch-all label.</p>
-    </div>
-
   </div>
 </section>
 
-<section class="testimonials" id="testimonials">
-  <h2 class="section-title">What Students & Parents Are Saying</h2>
-  <p class="section-sub">Early feedback from the people TutorLink is built for.</p>
-  <div class="testimonial-grid">
+<section class="section trust" id="trust">
+  <div class="container">
+    <h2 class="section-title">Safety measures, clearly scoped</h2>
+    <p class="section-subtitle">We'd rather tell you exactly what's required than imply more than we can guarantee.</p>
 
-    <div class="testimonial-card">
-      <p class="quote">"Before an exam, I don't have time to vet someone's credentials myself. Seeing exactly which checks a tutor passed — enrollment and GPA — gave me way more confidence than a generic badge ever would."</p>
-      <div class="person">
-        <div class="avatar">MC</div>
-        <div>
-          <div class="person-name">Maya Chen</div>
-          <div class="person-role">Undergraduate, Exam Prep</div>
-        </div>
+    <div class="trust-grid">
+      <div class="trust-card">
+        <h4>🛡️ Background screening for in-person tutors</h4>
+        <p>Tutors offering in-person sessions must complete a mandatory background screening as part of verification. Screening provider, scope, and renewal cadence are disclosed in-app during onboarding and in our Trust & Safety policy — this is a required gate, not an optional add-on.</p>
+      </div>
+      <div class="trust-card">
+        <h4>📞 Mandatory emergency contact for in-person sessions</h4>
+        <p>Before an in-person booking can be confirmed, students must designate an emergency contact. This step cannot be skipped — the booking flow blocks confirmation until it's completed, so this safety layer is never optional.</p>
+      </div>
+      <div class="trust-card">
+        <h4>🔍 Transparent verification labels</h4>
+        <p>Badges show which specific checks a tutor has passed (enrollment, GPA) rather than a single unexplained "verified" stamp, so you can judge credibility for yourself.</p>
+      </div>
+      <div class="trust-card">
+        <h4>🎥 Virtual-specific protections</h4>
+        <p>Virtual sessions use encrypted video with optional recording and chat moderation — protections suited to an online interaction, distinct from in-person physical safety protocols.</p>
       </div>
     </div>
-
-    <div class="testimonial-card">
-      <p class="quote">"Onboarding finally made sense once I understood in-person and virtual sessions have separate requirements. I know exactly what I need to complete depending on how I want to tutor."</p>
-      <div class="person">
-        <div class="avatar">DO</div>
-        <div>
-          <div class="person-name">Derek Osei</div>
-          <div class="person-role">Graduate Student, Tutor</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="testimonial-card">
-      <p class="quote">"Knowing my daughter can't even book an in-person session without setting an emergency contact first — that's the kind of built-in safeguard that actually matters to me."</p>
-      <div class="person">
-        <div class="avatar">LP</div>
-        <div>
-          <div class="person-name">Linda Park</div>
-          <div class="person-role">Parent of First-Year Student</div>
-        </div>
-      </div>
-    </div>
-
   </div>
 </section>
 
-<section class="final-cta" id="signup">
-  <h2>Be First to Book Verified Tutors on TutorLink</h2>
-  <p>Join the early access list and help shape how students find safe, credible academic support.</p>
-  <a href="#" class="cta-btn">Get Early Access</a>
+<section class="section testimonials" id="testimonials">
+  <div class="container">
+    <h2 class="section-title">Trusted by students, tutors, and parents</h2>
+    <p class="section-subtitle">Real concerns, addressed directly in how TutorLink is built.</p>
+
+    <div class="testimonial-grid">
+      <div class="testimonial-card">
+        <p class="quote">"Before an exam, I don't have time to gamble on a tutor's credentials. Seeing exactly which checks passed — not just a vague badge — gives me real confidence."</p>
+        <div class="testimonial-author">
+          <div class="avatar">MC</div>
+          <div class="author-info">
+            <strong>Maya Chen</strong>
+            <span>Undergraduate Student</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="quote">"Onboarding used to be confusing when I wanted to offer both virtual and in-person sessions. Now it's clear which safety steps apply to each, and why."</p>
+        <div class="testimonial-author">
+          <div class="avatar">DO</div>
+          <div class="author-info">
+            <strong>Derek Osei</strong>
+            <span>Graduate Student Tutor</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonial-card">
+        <p class="quote">"Knowing my daughter can't even book an in-person session without designating an emergency contact — that's the kind of mandatory safeguard I needed to hear about."</p>
+        <div class="testimonial-author">
+          <div class="avatar">LP</div>
+          <div class="author-info">
+            <strong>Linda Park</strong>
+            <span>Parent of First-Year Student</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final-cta" id="cta">
+  <div class="container">
+    <h2>Be first to book a verified tutor</h2>
+    <p>Join early access and help shape a platform built around real verification and clearly scoped safety — not vague promises.</p>
+    <a href="#" class="btn-cta">Get Early Access</a>
+  </div>
 </section>
 
 <footer>
-  <p><strong>TutorLink</strong> — Verified tutoring, virtual or in person.</p>
-  <p>&copy; 2024 TutorLink, Inc. All rights reserved.</p>
+  <div class="container">
+    <p>&copy; 2024 <strong>TutorLink</strong>. All rights reserved.</p>
+  </div>
 </footer>
 
 </body>
